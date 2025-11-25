@@ -1,0 +1,5 @@
+prometheus-client
+python-jenkins
+requests
+python-dotenv
+gunicorn

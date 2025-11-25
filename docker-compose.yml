@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # We are NOT running Jenkins via docker-compose here,
+  # as the user already has Jenkins running on localhost.
+  # The FlowMetrix service will connect to the host's Jenkins.
+
+  flowmetrix:
+    build: . # Build from the Dockerfile in this directory
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+     
+    # Docker Compose does not depend on a host service, but we add a healthcheck 
+    # to ensure Prometheus doesn't try to scrape until flowmetrix is up
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/metrics"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      
+    depends_on:
+      flowmetrix:
+        condition: service_healthy 
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus_data:
+  grafana_data:
