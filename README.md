@@ -15,7 +15,7 @@
 Jenkins is the engine of CI/CD, but it's often a black box.
 - **Developers** ask: "Why did my build take twice as long today?"
 - **DevOps Engineers** ask: "Which specific stage is our biggest bottleneck?"
-- **SREs** ask: "What is our P95 build time and failure rate over the last month?"
+
 
 Jenkins has the data, but it's buried in HTML logs. You can't easily graph it, alert on it, or spot long-term trends. **FlowMetrix solves this.**
 
