@@ -4,7 +4,7 @@
 
 ---
 
-![FlowMetrix Dashboard](
+
 )<img width="1914" height="861" alt="Screenshot 2025-11-25 165442" src="https://github.com/user-attachments/assets/7ee25dc7-0e06-4a76-a2b0-d1be755b23dc" />
 
 *(A screenshot of the Grafana dashboard showing build trends and stage durations)*
