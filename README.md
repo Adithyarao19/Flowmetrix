@@ -5,7 +5,8 @@
 ---
 
 
-)<img width="1914" height="861" alt="Screenshot 2025-11-25 165442" src="https://github.com/user-attachments/assets/7ee25dc7-0e06-4a76-a2b0-d1be755b23dc" />
+<img width="1913" height="903" alt="Screenshot 2025-12-04 022224" src="https://github.com/user-attachments/assets/41ee0d3c-cd26-4b8a-a64a-6da7def4a686" />
+
 
 *(A screenshot of the Grafana dashboard showing build trends and stage durations)*
 
